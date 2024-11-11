@@ -1,0 +1,36 @@
+<!-- templates/recommendations.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Recommendations</h1>
+
+    <h2>Previously Bought Products</h2>
+    <ul>
+        {% for product in bought_products %}
+            <li>Product ID: {{ product.product_id }} - Product Name: {{ product.product_name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Recommended Products</h2>
+    <ul>
+        {% for rec in recommendations %}
+            <li>Product ID: {{ rec.product_id }} - Product Name: {{ rec.product_name }} - Estimated Score: {{ rec.estimated_score }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Product Catalog</h2>
+    <ul>
+        {% for product in all_products %}
+            <li>Product ID: {{ product.product_id }} - Product Name: {{ product.product_name }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Go Back</a>
+</body>
+</html>
